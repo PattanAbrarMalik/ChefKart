@@ -1,5 +1,0 @@
-Root command startup verification - 13 October 2026
-
-PASS npm run dev:mongo: API 8000, frontend 3000, proxied health confirms mongodb.
-PASS npm run unit4: API 3001 starts after MongoDB; POST returns 201 and saved marks.
-PASS npm run unit4:connect: API 3002, POST returns 201 and saved CGPA.
