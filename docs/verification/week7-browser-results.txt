@@ -1,0 +1,10 @@
+ChefKart Week 7 browser verification - 13 October 2026
+Actual Flask server, temporary SQLite file, Chromium.
+Screenshots are internal QA only.
+
+PASS cook form: visible errors, corrected values, confirmation.
+PASS appointment form: customer, cook, date and phone reach confirmation.
+PASS cook CRUD: insert, list, edit, and saved availability.
+PASS staff: insert, redirect, saved row still shown on refresh.
+PASS cook delete: confirmation accepted and empty state displayed.
+PASS six pages at 1280px and 375px: no horizontal overflow; no JavaScript page errors.

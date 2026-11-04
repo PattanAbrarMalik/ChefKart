@@ -1,0 +1,45 @@
+# Reference requests: copy method, URL and JSON into Thunder Client.
+# If you use VS Code REST Client, this file can also send the requests directly.
+@baseUrl = http://127.0.0.1:3001
+# Replace this placeholder with the _id returned by POST before requests 3-5.
+@studentId = REPLACE_WITH_CREATED_ID
+
+### 1. CREATE - expected 201
+POST {{baseUrl}}/students
+Content-Type: application/json
+
+{
+  "name": "Rahul",
+  "rollNo": 101,
+  "branch": "CSE",
+  "marks": 85
+}
+
+### 2. READ ALL - expected 200 and an array
+GET {{baseUrl}}/students
+
+### 3. READ ONE - expected 200
+GET {{baseUrl}}/students/{{studentId}}
+
+### 4. UPDATE - expected 200, marks 92
+PUT {{baseUrl}}/students/{{studentId}}
+Content-Type: application/json
+
+{ "marks": 92 }
+
+### 5. DELETE - expected 200
+DELETE {{baseUrl}}/students/{{studentId}}
+
+### 6. Verify deletion - expected 404
+GET {{baseUrl}}/students/{{studentId}}
+
+### First connectivity exercise (separate process, port 3002)
+POST http://127.0.0.1:3002/students
+Content-Type: application/json
+
+{
+  "name": "Ravi Kumar",
+  "rollNo": "23CSE101",
+  "branch": "CSE",
+  "cgpa": 8.7
+}

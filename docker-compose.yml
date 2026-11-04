@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  # ── MongoDB ──────────────────────────────────────────────────────────────
+  mongodb:
+    image: mongo:7
+    container_name: chefkart-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: chefkart
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Backend API + Frontend ───────────────────────────────────────────────
+  app:
+    build: .
+    container_name: chefkart-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 8000
+      HOST: 0.0.0.0
+      MONGODB_URI: mongodb://mongodb:27017/chefkart
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env (min 32 chars)}
+      SEED_DATA: "true"
+      LOG_LEVEL: info
+    volumes:
+      - app_data:/app/backend/data
+
+  # ── Flask Form Service ─────────────────────────────────────────────────
+  forms:
+    build:
+      context: ./services/forms
+      dockerfile: Dockerfile
+    container_name: chefkart-forms
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    volumes:
+      - forms_data:/app/instance
+
+volumes:
+  mongodb_data:
+    driver: local
+  app_data:
+    driver: local
+  forms_data:
+    driver: local
+

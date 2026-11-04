@@ -1,0 +1,31 @@
+{
+  "name": "chefkart-platform",
+  "version": "4.0.0",
+  "private": true,
+  "description": "ChefKart — Home Cook Discovery & Booking Platform",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "services/student-api"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace backend",
+    "test": "npm run test --workspace backend",
+    "test:mongo": "node scripts/test-mongo.mjs",
+    "test:student": "npm run test --workspace chefkart-student-api",
+    "admin": "npm run admin --workspace backend",
+    "dev:mongo": "node scripts/mongo.mjs dev",
+    "start:mongo": "node scripts/mongo.mjs start",
+    "admin:mongo": "node scripts/mongo.mjs admin",
+    "db:catalog": "echo Run: mongosh \"mongodb://127.0.0.1:27017/chefkart_catalog\" --file backend/scripts/service-catalog.mongosh.js",
+    "db:chef-crud": "node backend/scripts/chef-crud-demo.cjs",
+    "db:shell": "echo Run: mongosh \"mongodb://127.0.0.1:27017\" --file backend/scripts/student-shell-demo.js",
+    "student-api": "npm run start --workspace chefkart-student-api",
+    "student-api:connect": "npm run connectivity --workspace chefkart-student-api"
+  }
+}

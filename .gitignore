@@ -1,0 +1,37 @@
+# Node & Workspace dependencies
+node_modules/
+.npm/
+
+# Build artifacts
+frontend/dist/
+dist/
+
+# Environment and sensitive keys
+.env
+.env.local
+.env.*.local
+*.jwt-secret
+backend/data/*
+!backend/data/.gitkeep
+
+# Python & SQLite artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.sqlite3-*
+services/forms/instance/
+
+# Logs and test outputs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+test-results/
+.coverage
+
+# OS generated files
+.DS_Store
+Thumbs.db

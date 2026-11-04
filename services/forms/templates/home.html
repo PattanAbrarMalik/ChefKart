@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">ChefKart / Kitchen Desk</p>
+  <h1>A little order.<br>A happier kitchen.</h1>
+  <p class="intro">Manage cook details, review a cooking appointment, and keep your kitchen team organised.</p>
+  <a class="button" href="{{ url_for('chefs') }}">Open chef records</a>
+</section>
+<section class="exercise-list" aria-label="Choose an exercise">
+  <a class="exercise" href="{{ url_for('cook_form') }}"><span class="number">01</span><div><small>Exercise 1 · Form Validation</small><h2>Cook details form</h2><p>Enter a name and cuisine, then review the validated details.</p></div><span aria-hidden="true">→</span></a>
+  <a class="exercise" href="{{ url_for('appointment') }}"><span class="number">02</span><div><small>Exercise 2 · Form Validation</small><h2>Cooking appointment</h2><p>Choose a cook and date. Check the customer and contact details.</p></div><span aria-hidden="true">→</span></a>
+  <a class="exercise" href="{{ url_for('chefs') }}"><span class="number">03</span><div><small>Exercise 3 · SQLite CRUD</small><h2>Chef records</h2><p>Add, view, edit and delete cook profiles saved in your local database.</p></div><span aria-hidden="true">→</span></a>
+  <a class="exercise" href="{{ url_for('employees') }}"><span class="number">04</span><div><small>Exercise 4 · SQLite CRUD</small><h2>Kitchen staff</h2><p>Save staff details and see the records your team has entered.</p></div><span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}

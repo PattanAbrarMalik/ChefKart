@@ -1,0 +1,50 @@
+# ── Render Infrastructure as Code (Blueprint) ──────────────────────────────
+# Deploy ChefKart to Render with 1-click: https://render.com
+# Documentation: https://render.com/docs/blueprint-spec
+
+services:
+  # ── 1. Core Platform (React 18 SPA + Express 4 API) ──────────────────────
+  - type: web
+    name: chefkart-platform
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SEED_DATA
+        value: "true"
+      - key: LOG_LEVEL
+        value: info
+      # Connect your MongoDB Atlas cluster URI in the Render dashboard:
+      # e.g., mongodb+srv://<username>:<password>@cluster.mongodb.net/chefkart
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+
+  # ── 2. Forms Microservice (Python / Flask 3) ──────────────────────────────
+  - type: web
+    name: chefkart-forms
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: services/forms
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT "app:create_app()"
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: CHEFKART_FLASK_SECRET
+        generateValue: true
+

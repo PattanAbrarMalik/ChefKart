@@ -1,0 +1,33 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> chefkart-project@3.0.0 test:mongo
+> node scripts/test-mongo.mjs
+
+▶ complete REST application
+  ✔ health, seed idempotence, and privacy (46.603379ms)
+  ✔ signup, duplicate email, login, and no self-promotion (1254.785679ms)
+  ✔ booking create/read/update and record ownership (106.990235ms)
+  ✔ booking cancellation, delete, and persistence (43.445744ms)
+  ✔ chef registration, read, edit, verification protection, and delete (73.210468ms)
+  ✔ blogs: full admin CRUD and public reads (27.070228ms)
+  ✔ testimonials: full admin CRUD and public reads (29.629278ms)
+  ✔ services: full admin CRUD and public reads (22.132464ms)
+  ✔ gallery: full admin CRUD and public reads (28.135361ms)
+  ✔ carousel: full admin CRUD and public reads (24.761899ms)
+  ✔ home: full admin CRUD and public reads (23.993231ms)
+  ✔ food: full admin CRUD and public reads (24.927083ms)
+  ✔ food-gallery: full admin CRUD and public reads (28.409703ms)
+  ✔ investors: full admin CRUD and public reads (24.84723ms)
+  ✔ join: full admin CRUD and public reads (24.078166ms)
+  ✔ connect: full admin CRUD and public reads (24.800066ms)
+  ✔ private contact, investor and career enquiries (54.518752ms)
+  ✔ validation, unknown endpoints, JSON syntax, and CORS (11.804005ms)
+✔ complete REST application (1884.077281ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2306.494635

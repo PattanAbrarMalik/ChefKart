@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Kitchen desk{% endblock %} · ChefKart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="{{ url_for('home') }}">Chef<span>Kart</span><small>Kitchen desk</small></a>
+      <nav aria-label="Main navigation">
+        <a href="{{ url_for('cook_form') }}">Cook form</a>
+        <a href="{{ url_for('appointment') }}">Appointment</a>
+        <a href="{{ url_for('chefs') }}">Chef records</a>
+        <a href="{{ url_for('employees') }}">Kitchen staff</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container">
+    {% for message in get_flashed_messages() %}
+    <p class="notice success" role="status">{{ message }}</p>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="container">ChefKart · Kitchen Desk · Home cooking, thoughtfully organised.</footer>
+</body>
+
+</html>

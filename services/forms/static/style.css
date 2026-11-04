@@ -1,0 +1,91 @@
+/* ChefKart colours match the original React app. No external fonts or images. */
+:root { font-family: Inter, "Segoe UI", sans-serif; color: #252721; background: #fffefa; --orange: #ed7028; --green: #3b5747; --line: #e6e7dd; --muted: #6b6e65; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button, .button { cursor: pointer; }
+button, .button { display: inline-flex; justify-content: center; align-items: center; padding: 12px 20px; border-radius: 9px; border: 1px solid transparent; background: var(--green); color: white; font-weight: 650; line-height: 1.3; }
+button:hover, .button:hover { filter: brightness(.94); }
+.secondary { background: white; color: var(--green); border-color: var(--line); }
+.danger { background: #fff3ed; color: #963d18; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.container, .nav-wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+header { border-bottom: 1px solid var(--line); background: #fffefa; }
+.nav-wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 94px; padding-block: 16px; }
+.brand { font-size: 27px; font-weight: 800; letter-spacing: -1px; }
+.brand span { color: #c14b10; }
+.brand small { display: block; font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+nav { display: flex; flex-wrap: wrap; gap: 22px; font-size: 14px; font-weight: 650; }
+nav a:hover, .text-link:hover { color: #af4510; }
+main { padding-block: 50px 70px; min-height: 78vh; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(32px, 4.3vw, 53px); line-height: 1.1; letter-spacing: -1.7px; margin-bottom: 20px; }
+h2 { font-size: 24px; letter-spacing: -.6px; margin-bottom: 10px; }
+h3 { font-size: 21px; margin-bottom: 8px; }
+p { line-height: 1.65; }
+.intro { color: var(--muted); font-size: 17px; max-width: 680px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 1.9px; font-size: 11px; font-weight: 800; color: #b24712; margin-bottom: 18px; }
+.hero { padding: 18px 0 42px; }
+.hero h1 { font-size: clamp(42px, 6vw, 68px); }
+.hero .button { margin-top: 8px; }
+.exercise-list { border-top: 1px solid var(--line); }
+.exercise { display: grid; grid-template-columns: 58px 1fr 28px; gap: 20px; padding: 29px 0; border-bottom: 1px solid var(--line); align-items: center; }
+.exercise:hover h2 { color: #af4510; }
+.exercise small, small, .muted { color: var(--muted); }
+.exercise h2 { margin-top: 8px; }
+.exercise p { margin-bottom: 0; color: var(--muted); }
+.number { color: #ad5b2d; font-size: 24px; font-weight: 600; }
+.narrow { max-width: 640px; margin: auto; }
+.form-panel { margin-top: 28px; padding: 28px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+.field { display: grid; gap: 8px; margin-bottom: 21px; }
+label { font-size: 14px; font-weight: 700; }
+input, select { width: 100%; min-width: 0; padding: 12px 13px; background: #fffefa; border: 1px solid #c9ccbf; border-radius: 7px; color: #252721; }
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #b8422a; }
+.field small, .field-error { font-size: 12px; line-height: 1.5; }
+.field-error { color: #9f2d1a; }
+.notice { padding: 15px 18px; border-radius: 8px; margin-bottom: 22px; line-height: 1.5; }
+.success { background: #ecf3eb; color: #2d5438; }
+.error { background: #fff0e9; color: #902f17; }
+.details { margin: 32px 0; border-top: 1px solid var(--line); }
+.details div { display: grid; grid-template-columns: 155px 1fr; padding: 17px 0; border-bottom: 1px solid var(--line); gap: 16px; }
+dt { color: var(--muted); }
+dd { margin: 0; overflow-wrap: anywhere; }
+.text-link { display: inline-block; padding: 12px; font-weight: 650; color: var(--green); }
+.page-heading { display: flex; gap: 24px; justify-content: space-between; align-items: flex-start; }
+.page-heading > .button { flex-shrink: 0; }
+.record { display: flex; justify-content: space-between; gap: 25px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.record h2 { margin-top: 15px; overflow-wrap: anywhere; }
+.record p { margin-bottom: 8px; overflow-wrap: anywhere; }
+.record-actions { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 21px; flex-shrink: 0; }
+.record-actions strong { color: var(--green); font-size: 20px; }
+.record-actions strong small { font-size: 12px; font-weight: 400; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.actions form { margin: 0; }
+.status { display: inline-block; background: #eaf2e9; color: #345b3a; padding: 6px 9px; border-radius: 5px; font-size: 12px; }
+.inactive { background: #f3ece4; color: #775336; }
+.empty { padding: 35px; border: 1px dashed #cbd0c2; border-radius: 12px; margin-top: 22px; background: #f9f8f1; }
+.empty p { margin-bottom: 12px; color: var(--muted); }
+.staff-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 42px; margin-top: 30px; }
+.staff-layout .form-panel { margin-top: 0; }
+.staff-record { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.staff-record h3 { margin-top: 9px; overflow-wrap: anywhere; }
+.staff-record p { margin-bottom: 14px; }
+.staff-record dl div { display: flex; justify-content: space-between; gap: 20px; padding: 5px 0; font-size: 14px; }
+footer { border-top: 1px solid var(--line); padding-block: 25px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.skip-link { position: absolute; left: 12px; top: -80px; background: white; padding: 12px; z-index: 3; }
+.skip-link:focus { top: 5px; }
+@media (max-width: 700px) {
+  .container, .nav-wrap { width: calc(100% - 32px); }
+  .nav-wrap { align-items: flex-start; flex-direction: column; gap: 18px; }
+  nav { gap: 12px 18px; font-size: 13px; }
+  main { padding-block: 32px 48px; }
+  .form-panel { padding: 22px 18px; }
+  .exercise { grid-template-columns: 32px 1fr 16px; gap: 12px; }
+  .exercise h2 { font-size: 21px; }
+  .staff-layout { grid-template-columns: 1fr; gap: 35px; }
+  .page-heading, .record { flex-direction: column; }
+  .record-actions { align-items: flex-start; width: 100%; }
+  .details div { grid-template-columns: 1fr; gap: 7px; }
+  .empty { padding: 25px 20px; }
+}

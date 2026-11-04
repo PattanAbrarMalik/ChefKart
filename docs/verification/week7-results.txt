@@ -1,0 +1,18 @@
+test_all_exercise_pages_load (test_app.ChefKartFormsTest.test_all_exercise_pages_load) ... ok
+test_appointment_accepts_today_and_future_without_storing (test_app.ChefKartFormsTest.test_appointment_accepts_today_and_future_without_storing) ... ok
+test_appointment_rejects_past_invalid_date_cook_and_phone (test_app.ChefKartFormsTest.test_appointment_rejects_past_invalid_date_cook_and_phone) ... ok
+test_chef_create_read_update_delete (test_app.ChefKartFormsTest.test_chef_create_read_update_delete) ... ok
+test_cook_form_rejects_missing_or_long_values (test_app.ChefKartFormsTest.test_cook_form_rejects_missing_or_long_values) ... ok
+test_cook_form_trims_displays_and_does_not_store (test_app.ChefKartFormsTest.test_cook_form_trims_displays_and_does_not_store) ... ok
+test_database_survives_a_new_app_instance (test_app.ChefKartFormsTest.test_database_survives_a_new_app_instance) ... ok
+test_delete_requires_post_and_missing_profiles_return_404 (test_app.ChefKartFormsTest.test_delete_requires_post_and_missing_profiles_return_404) ... ok
+test_employee_is_saved_and_displayed_after_redirect (test_app.ChefKartFormsTest.test_employee_is_saved_and_displayed_after_redirect) ... ok
+test_employee_rejects_invalid_fields (test_app.ChefKartFormsTest.test_employee_rejects_invalid_fields) ... ok
+test_html_is_escaped_and_sql_values_are_bound (test_app.ChefKartFormsTest.test_html_is_escaped_and_sql_values_are_bound) ... ok
+test_invalid_chef_create_and_update_do_not_change_records (test_app.ChefKartFormsTest.test_invalid_chef_create_and_update_do_not_change_records) ... ok
+test_missing_and_invalid_csrf_are_rejected (test_app.ChefKartFormsTest.test_missing_and_invalid_csrf_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.334s
+
+OK

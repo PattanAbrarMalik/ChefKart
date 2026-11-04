@@ -1,0 +1,32 @@
+{# Shared labelled fields keep validation messages consistent across all forms. #}
+{% macro csrf() %}
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+{% endmacro %}
+
+{% macro input_field(name, label, values, errors, type='text', hint='', minimum='', maximum='', step='', maxlength='80') %}
+<div class="field">
+  <label for="{{ name }}">{{ label }}</label>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ values.get(name, '') }}" required
+         maxlength="{{ maxlength }}" {% if minimum %}min="{{ minimum }}"{% endif %}
+         {% if maximum %}max="{{ maximum }}"{% endif %} {% if step %}step="{{ step }}"{% endif %}
+         {% if errors.get(name) %}aria-invalid="true" aria-describedby="{{ name }}-error"{% endif %}>
+  {% if hint %}<small>{{ hint }}</small>{% endif %}
+  {% if errors.get(name) %}<span class="field-error" id="{{ name }}-error">{{ errors[name] }}</span>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro select_field(name, label, options, values, errors) %}
+<div class="field">
+  <label for="{{ name }}">{{ label }}</label>
+  <select id="{{ name }}" name="{{ name }}" required
+          {% if errors.get(name) %}aria-invalid="true" aria-describedby="{{ name }}-error"{% endif %}>
+    <option value="">Choose an option</option>
+    {% for value, text in options %}<option value="{{ value }}" {% if values.get(name) == value %}selected{% endif %}>{{ text }}</option>{% endfor %}
+  </select>
+  {% if errors.get(name) %}<span class="field-error" id="{{ name }}-error">{{ errors[name] }}</span>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro error_summary(errors) %}
+{% if errors %}<div class="notice error" role="alert">Please correct the highlighted fields. Your entries are kept below.</div>{% endif %}
+{% endmacro %}
