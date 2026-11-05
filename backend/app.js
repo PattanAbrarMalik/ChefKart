@@ -35,7 +35,11 @@ app.use(requestLogger);
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || config.origins.includes(origin))
+      if (
+        !origin ||
+        config.origins.includes(origin) ||
+        /^https?:\/\/[a-z0-9-]+\.onrender\.com$/i.test(origin)
+      )
         return callback(null, true);
       callback(
         Object.assign(new Error("This browser origin is not allowed."), {

@@ -41,5 +41,10 @@ export const config = {
     "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000,http://127.0.0.1:8000"
   )
     .split(",")
-    .map((s) => s.trim()),
+    .map((s) => s.trim())
+    .concat(
+      process.env.RENDER_EXTERNAL_URL
+        ? [process.env.RENDER_EXTERNAL_URL.trim()]
+        : [],
+    ),
 };
