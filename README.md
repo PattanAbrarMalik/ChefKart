@@ -1,10 +1,16 @@
 # ChefKart — Home Cook Discovery & Booking Platform
 
-A production-grade full-stack web application connecting customers with professional home cooks. Built with **React**, **Express.js**, **MongoDB**, **Flask**, and **SQLite** as an integrated multi-service platform.
+[![Deploy to Render](https://img.shields.io/badge/Deploy%20on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://chefkart-76ny.onrender.com)
+[![Database](https://img.shields.io/badge/MongoDB-Atlas%20Cloud-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://cloud.mongodb.com)
+[![Node](https://img.shields.io/badge/Node.js-20.18.0%20LTS-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
+[![Frontend](https://img.shields.io/badge/React-18.3%20%2B%20Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+
+> 🚀 **Live Production URL:** [https://chefkart-76ny.onrender.com](https://chefkart-76ny.onrender.com)  
+> 🏥 **Health Check:** [https://chefkart-76ny.onrender.com/api/health](https://chefkart-76ny.onrender.com/api/health)
+
+A production-grade full-stack web application connecting customers with professional home cooks. Built with **React 18**, **Express.js**, **MongoDB Atlas**, and **Vite** as a unified monorepo platform.
 
 ## Architecture Overview
-
-For a comprehensive deep-dive into the architectural specification, threat model, domain invariants, and design patterns, see **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
 
 ```text
 ChefKart/
@@ -38,6 +44,13 @@ ChefKart/
 │   ├── services/
 │   │   ├── store.js            Repository pattern: MongoDB ↔ JSON dual persistence
 │   │   └── seed.js             Idempotent sample data provisioning
+│   └── server.js               Production startup, clustering, graceful shutdown
+├── .gitignore
+├── .node-version               Pinned Node 20.18.0 LTS
+├── package.json                Monorepo workspace configuration
+├── package-lock.json
+└── render.yaml                 Infrastructure as Code (Render Web Service)
+```
 │   ├── utils/logger.js         Structured logger (JSON in prod, colored in dev)
 │   ├── scripts/                DB tools (service catalog, chef CRUD, admin provisioning)
 │   ├── tests/                  19 automated API integration tests
